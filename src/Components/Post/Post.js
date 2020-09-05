@@ -9,19 +9,16 @@ const Post = ({ singlePost }) => {
     history.push(`/post/${postID}`);
   };
   return (
-    <Box ml={30} pt={3}>
+    <Box mx={20} my={3} p={3} boxShadow={2}>
       {/* <Postcard title={title} body={body}></Postcard> */}
       <h1>{title}</h1>
       <pre>{body}</pre>
+
       <Button
-        mr={10}
+        onClick={() => handleCommentButton(id)}
         variant="outlined"
         color="primary"
-        href="#outlined-buttons"
       >
-        Share
-      </Button>
-      <Button onClick={()=>handleCommentButton(id)} variant="outlined" color="primary">
         View Comments
       </Button>
     </Box>
