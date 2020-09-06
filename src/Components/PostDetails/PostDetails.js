@@ -31,15 +31,8 @@ const PostDetails = () => {
         <h3 color="text.warning.main">Comments:</h3>
         <ul>
           {comments.map((singleComment) => (
-            <Box
-              display="flex"
-              flexDirection="row"
-              p={1}
-              m={1}
-              bgcolor="background.paper"
-            >
-              {" "}
-              <Box mr={3}>
+            <Box display="flex" flexDirection="row" p={1} m={1}>
+              <Box mr={2}>
                 <Avatar
                   alt="Profile Picture"
                   src={`https://graph.facebook.com/v2.5/${
@@ -47,20 +40,34 @@ const PostDetails = () => {
                   }/picture?height=200&height=200`}
                 />
               </Box>
-              {singleComment.name}
-              <br></br>
-              {singleComment.body}
+              <Box
+                style={{ background: "#DCDCDC" }}
+                px={3}
+                className="MuiPaper-rounded"
+              >
+                {singleComment.name}
+                <br></br>
+                {singleComment.body}
+              </Box>
             </Box>
           ))}
         </ul>
+        <Box display="flex" flexDirection="row" p={1} m={2}>
+          <Box mx={3}>
+            <Avatar
+              alt="Profile Picture"
+              src={`https://i.insider.com/5cdf0a1393a152734e0fc973?width=1021&format=jpeg`}
+            />
+          </Box>
 
-        <form noValidate autoComplete="off">
-          <TextField
-            id="outlined-basic"
-            label="Your Comment"
-            variant="outlined"
-          />
-        </form>
+          <form noValidate autoComplete="off">
+            <TextField
+              id="outlined-basic"
+              label="Write a Comment..."
+              variant="outlined"
+            />
+          </form>
+        </Box>
       </Box>
     </div>
   );
