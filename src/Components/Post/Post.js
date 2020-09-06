@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Box } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+
 
 const Post = ({ singlePost }) => {
   let { userId, id, title, body } = singlePost;
@@ -13,7 +15,7 @@ const Post = ({ singlePost }) => {
       {/* <Postcard title={title} body={body}></Postcard> */}
       <h1>{title}</h1>
       <pre>{body}</pre>
-
+      <ThumbUpIcon color="primary"></ThumbUpIcon>
       <Button
         onClick={() => handleCommentButton(id)}
         variant="outlined"

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
 import Header from "../Header/Header";
-import { Box, Avatar, TextField } from "@material-ui/core";
+import { Box, Avatar, Typography } from "@material-ui/core";
+import MyComment from "../MyComment/MyComment";
 
 const PostDetails = () => {
   let { postID } = useParams();
@@ -26,9 +27,11 @@ const PostDetails = () => {
     <div>
       <Header></Header>
       <Box mx={20} p={3} boxShadow={2}>
-        <h1>{title}</h1>
+        <Typography color="primary" variant="h4">
+          {title}
+        </Typography>
         <pre>{body}</pre>
-        <h3 color="text.warning.main">Comments:</h3>
+        <h3>Comments:</h3>
         <ul>
           {comments.map((singleComment) => (
             <Box display="flex" flexDirection="row" p={1} m={1}>
@@ -41,33 +44,19 @@ const PostDetails = () => {
                 />
               </Box>
               <Box
-                style={{ background: "#DCDCDC" }}
+                style={{ background: "#f9f9f9", width: "100%" }}
                 px={3}
                 className="MuiPaper-rounded"
               >
-                {singleComment.name}
-                <br></br>
+                <Typography color="primary" variant="h6">
+                  {singleComment.name}
+                </Typography>
                 {singleComment.body}
               </Box>
             </Box>
           ))}
         </ul>
-        <Box display="flex" flexDirection="row" p={1} m={2}>
-          <Box mx={3}>
-            <Avatar
-              alt="Profile Picture"
-              src={`https://i.insider.com/5cdf0a1393a152734e0fc973?width=1021&format=jpeg`}
-            />
-          </Box>
-
-          <form noValidate autoComplete="off">
-            <TextField
-              id="outlined-basic"
-              label="Write a Comment..."
-              variant="outlined"
-            />
-          </form>
-        </Box>
+        <MyComment></MyComment>
       </Box>
     </div>
   );
