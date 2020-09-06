@@ -20,7 +20,6 @@ const PostDetails = () => {
     ).then((data) => setComments(data.data));
   }, []);
 
-  //   console.log(comments);
   let { title, body } = post;
 
   return (

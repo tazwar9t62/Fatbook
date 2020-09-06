@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, Box } from "@material-ui/core";
+import { Button, Box, Typography } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
-
+import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 
 const Post = ({ singlePost }) => {
   let { userId, id, title, body } = singlePost;
@@ -12,10 +12,18 @@ const Post = ({ singlePost }) => {
   };
   return (
     <Box mx={20} my={3} p={3} boxShadow={2}>
-      {/* <Postcard title={title} body={body}></Postcard> */}
-      <h1>{title}</h1>
+      <Typography color="primary" variant="h4">
+        {title}
+      </Typography>
       <pre>{body}</pre>
-      <ThumbUpIcon color="primary"></ThumbUpIcon>
+      <ThumbUpIcon
+        color="primary"
+        style={{ marginRight: "10px" }}
+      ></ThumbUpIcon>
+      <ThumbDownIcon
+        color="secondary"
+        style={{ marginRight: "30px" }}
+      ></ThumbDownIcon>
       <Button
         onClick={() => handleCommentButton(id)}
         variant="outlined"

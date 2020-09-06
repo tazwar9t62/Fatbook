@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import Axios from "axios";
 import Post from "../Post/Post";
@@ -14,7 +14,7 @@ const Home = () => {
     <div>
       <Header></Header>
       {allPosts.map((singlePost) => (
-        <Post singlePost={singlePost}></Post>
+        <Post singlePost={singlePost} key={singlePost.id}></Post>
       ))}
     </div>
   );
